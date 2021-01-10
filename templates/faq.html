@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Section - archive -->
+    <section id="faq">
+        <header class="major">
+            <h2>FAQ</h2>
+        </header>
+        <div>
+            <p>Berikut adalah pertanyaan yang sering ditanyakan terkait aplikasi ini :</p>
+            {% for faq in faqs %}
+                <article>
+                    <h3>{{ faq.title }}</h3>
+                    <p>{{ faq.faq }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- /Section - archive -->
+{% endblock %}

@@ -1,0 +1,210 @@
+{% load static %}
+{% get_media_prefix as MEDIA_URL %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ config.SITE_TITLE }}</title>
+    <meta name="description" content="{{ config.SITE_DESCRIPTION }}">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static '/assets/css/main.css' %}"/>
+    <link rel="icon" href="{{ MEDIA_URL }}{{ config.SITE_FAVICON }}" type="image/png" sizes="16x16">
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <a href="{% url 'content:index' %}" class="logo"><strong>{{ config.SITE_TITLE }}</strong></a>
+                <ul class="icons">
+                    {% if config.SOCIAL_NETWORKS_TWITTER_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_TWITTER_URL }}" class="icon brands fa-twitter"
+                               title="Twitter"><span class="label">Twitter</span></a></li>
+                    {% endif %}
+                    {% if config.SOCIAL_NETWORKS_FACEBOOK_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_FACEBOOK_URL }}" class="icon brands fa-facebook-f"
+                               title="Facebook"><span class="label">Facebook</span></a></li>
+                    {% endif %}
+                    {% if config.SOCIAL_NETWORKS_SNAPCHAT_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_SNAPCHAT_URL }}" class="icon brands fa-snapchat-ghost"
+                               title="Snapchat"><span class="label">Snapchat</span></a></li>
+                    {% endif %}
+                    {% if config.SOCIAL_NETWORKS_INSTAGRAM_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_INSTAGRAM_URL }}" class="icon brands fa-instagram"
+                               title="Instagram"><span class="label">Instagram</span></a></li>
+                    {% endif %}
+                    {% if config.SOCIAL_NETWORKS_MEDIUM_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_MEDIUM_URL }}" class="icon brands fa-medium-m"
+                               title="Medium"><span class="label">Medium</span></a></li>
+                    {% endif %}
+                    {% if config.SOCIAL_NETWORKS_TELEGRAM_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_TELEGRAM_URL }}" class="icon brands fa-telegram"
+                               title="Telegram"><span class="label">Telegram</span></a></li>
+                    {% endif %}
+                    {% if config.SOCIAL_NETWORKS_GITHUB_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_GITHUB_URL }}" class="icon brands fa-github"
+                               title="Github"><span class="label">Github</span></a></li>
+                    {% endif %}
+                    {% if config.SOCIAL_NETWORKS_GITLAB_URL != '#' %}
+                        <li><a href="{{ config.SOCIAL_NETWORKS_GITLAB_URL }}" class="icon brands fa-gitlab"
+                               title="Gitlab"><span class="label">Gitlab</span></a></li>
+                    {% endif %}
+                </ul>
+            </header>
+            <!-- /Header -->
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form method="GET" action="/search/">
+                    <input type="text" name="query" id="query" placeholder="Search"/>
+                </form>
+            </section>
+            <!-- /Search -->
+
+                <section id="get_in_touch">
+                    <header>
+                        <h4>Selamat Datang</h4>
+                        <img  style="vertical-align:middle;width: 35px;height: auto;padding: 5px;border-radius: 50%;border:1px solid #021a40;"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAA6CAYAAADybArcAAAACXBIWXMAAC4jAAAuIwF4pT92AAAF6WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDggNzkuMTY0MDM2LCAyMDE5LzA4LzEzLTAxOjA2OjU3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjAtMTItMDlUMTc6MDc6MzQrMDc6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIwLTEyLTA5VDE3OjExOjA0KzA3OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIwLTEyLTA5VDE3OjExOjA0KzA3OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjg1ODJkYTI4LTU5ODUtNGMxZC1hOWY2LTY5OGM0YzhjZjQ5YiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpjYzhjMWUxYS1jYmU3LTRhYWYtOTMwYS0wOGMxNzFkNjZkZmYiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjYzhjMWUxYS1jYmU3LTRhYWYtOTMwYS0wOGMxNzFkNjZkZmYiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmNjOGMxZTFhLWNiZTctNGFhZi05MzBhLTA4YzE3MWQ2NmRmZiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0wOVQxNzowNzozNCswNzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjg1ODJkYTI4LTU5ODUtNGMxZC1hOWY2LTY5OGM0YzhjZjQ5YiIgc3RFdnQ6d2hlbj0iMjAyMC0xMi0wOVQxNzoxMTowNCswNzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Y9LFTAAADlZJREFUaIHFmmmMXeV5x3/vcs65+507+4w93h2b2C7FQIwTILQQTEJUxCaiNk0gKSSURqmibE2gihI1yYcoqtIlUdsoSgSRIhqllLCVD5BAEkqguFDABLwww3gZz3jmzp27nOV93344M+OxPV7u2KWPZHl0z3mW/3nWdxF37djKOaIu4BvA7cAEsBP4V+CfAHvcu0WgF9h9rpTLcyTHJzX+DuA5UlBXAt8FXgPWzL63dvb/rwB3niPdwLkDcjnwE+D9wC1AFcA6h7FunbXuP61zNxjrXkis+4CD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"><span style="line-height:30px;font-size: 20px;margin-left: 10px; font-weight: bold;">{{ users.username }}</span>
+                    </header>
+                    <div class="mini-posts">
+
+                    </div>
+                </section>
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="{% url 'content:index' %}" id="menu_homepage">Homepage</a></li>
+                    <li><a href="{% url 'content:blog' %}">Blog</a></li>
+                    <li>
+                        <span class="opener">Blog Categories</span>
+                        <ul>
+                            {% for blogs_category in blogs_categories %}
+                                <li><a href="{% url 'content:blog_archive_by_category_pk' blogs_category.pk %}">{{ blogs_category.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'content:videocast' %}" id="menu_videocast">Videocast</a></li>
+                    <li>
+                        <span class="opener">Videocast Categories</span>
+                        <ul>
+                            {% for videocasts_category in videocasts_categories %}
+                                <li><a href="{% url 'content:videocast_archive_by_category_pk' videocasts_category.pk %}">{{ videocasts_category.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'content:podcast' %}" id="menu_podcast">Podcast</a></li>
+                    <li>
+                        <span class="opener">Podcast Categories</span>
+                        <ul>
+                            {% for podcast_category in podcast_categories %}
+                                <li><a href="{% url 'content:podcast_archive_by_category_pk' podcast_category.pk %}">{{ podcast_category.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'content:faq' %}" id="menu_faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <!-- /Menu -->
+
+            <!-- Section - podcast -->
+            <section id="podcast">
+                <header class="major">
+                    <h2>The latest Podcasts</h2>
+                </header>
+                <div class="mini-posts">
+                    {% for podcast in podcasts %}
+                        <article>
+                            <a href="{% url 'content:podcast_single' podcast.slug %}" class="image">
+                                <img src="{{ podcast.thumbnail.url }}" alt="{{ podcast.title }}"/>
+                            </a>
+                            <p>{{ podcast.content | safe |truncatewords_html:15 }}</p>
+                            <a href="{% url 'content:podcast_single' podcast.slug %}" class="button">More</a>
+                        </article>
+                    {% endfor %}
+                </div>
+            </section>
+            <!-- /Section - podcast -->
+
+            {% if config.GET_IN_TOUCH_ACTIVE == 'yes' %}
+                <!-- get_in_touch -->
+                <section id="get_in_touch">
+                    <header class="major">
+                        <h2>Get in touch</h2>
+                    </header>
+                    <p>{{ config.GET_IN_TOUCH_INFO | safe }}</p>
+                    <ul class="contact">
+                        <li class="icon solid fa-envelope">
+                            <a href="mailto:{{ config.GET_IN_TOUCH_EMAIL_ADDRESS }}">{{ config.GET_IN_TOUCH_EMAIL_ADDRESS }}</a>
+                        </li>
+                        <li class="icon solid fa-phone">
+                            {{ config.GET_IN_TOUCH_PHONE }}
+                        </li>
+                        <li class="icon solid fa-home">
+                            {{ config.GET_IN_TOUCH_ADDRESS | safe }}
+                        </li>
+                    </ul>
+                </section>
+                <!-- /get_in_touch -->
+            {% endif %}
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">
+                    &copy; Untitled. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>. CMS: <a
+                        href="https://github.com/mavenium/PyEditorial" title="PyEditorial">PyEditorial</a></p>
+            </footer>
+            <!-- /Footer -->
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{% static '/assets/js/jquery.min.js' %}"></script>
+<script src="{% static '/assets/js/browser.min.js' %}"></script>
+<script src="{% static '/assets/js/breakpoints.min.js' %}"></script>
+<script src="{% static '/assets/js/util.js' %}"></script>
+<script src="{% static '/assets/js/main.js' %}"></script>
+<!-- /Scripts -->
+<script type="text/javascript">
+    $(document).ready(function() { /* code here */
+        // var element = document.getElementById("sidebar");
+        // element.removeClass('inactive');
+
+        var $sidebar = $('#sidebar');
+        $sidebar.removeClass('inactive');
+    });
+
+    function wait(ms){
+       var start = new Date().getTime();
+       var end = start;
+       while(end < start + ms) {
+         end = new Date().getTime();
+      }
+    }
+</script>
+alert('ok');
+
+</body>
+</html>
